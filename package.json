@@ -1,0 +1,25 @@
+{
+  "name": "vue-doubleclick",
+  "version": "1.0.0",
+  "description": "Google DoubleClick for Publishers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ablypl/vue-dfp.git"
+  },
+  "keywords": [
+    "vuejs",
+    "dfp",
+    "doubleclick",
+    "google"
+  ],
+  "author": "Sebastian Szczepanski <sebastian@ably.pl> (http://ably.pl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ablypl/vue-dfp/issues"
+  },
+  "homepage": "https://github.com/ablypl/vue-dfp#readme"
+}
