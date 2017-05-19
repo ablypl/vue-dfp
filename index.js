@@ -11,7 +11,7 @@ export default {
      * @param options
      */
     install(Vue, options){
-        Vue.component('google-ad', require('./BannerAd'));
+        Vue.component('google-ad', require('./.components/BannerAd'));
 
         this.init(options)
     },
