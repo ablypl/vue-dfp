@@ -1,17 +1,17 @@
 'use strict';
 
-let sizes = {
-    banner: [[1200, 600], [1200, 400], [300, 250], [300, 300]],
-    rectangle: [ [300, 250], [300, 300], [300, 600]]
-};
 export default {
+    sizes : {
+        banner: [[1200, 600], [1200, 400], [300, 250], [300, 300]],
+        rectangle: [ [300, 250], [300, 300], [300, 600]]
+    },
     /**
      * Install DoubleClick Plugin
      * @param Vue
      * @param options
      */
     install(Vue, options){
-        Vue.component('google-ad', require('./components/BannerAd'));
+        Vue.component('google-ad', require('./BannerAd'));
 
         this.init(options)
     },
@@ -35,15 +35,15 @@ export default {
         googletag.cmd.push(() => {
             this.extractOptions(options);
 
-        googletag.pubads().enableSingleRequest();
-        //googletag.pubads().enableSyncRendering();
-        googletag.pubads().collapseEmptyDivs();
-        // googletag.pubads().disableInitialLoad();
-        googletag.enableServices();
-        //googletag.display('dynamicload');
-        // googletag.pubads().refresh();
+            googletag.pubads().enableSingleRequest();
+            //googletag.pubads().enableSyncRendering();
+            googletag.pubads().collapseEmptyDivs();
+            // googletag.pubads().disableInitialLoad();
+            googletag.enableServices();
+            //googletag.display('dynamicload');
+            // googletag.pubads().refresh();
 
-    });
+        });
 
     },
 
@@ -52,7 +52,7 @@ export default {
      * @param options
      */
     extractOptions(options){
-        options.sizes = Object.assign(sizes, options.sizes);
+        options.sizes = Object.assign(this.sizes, options.sizes);
         options.mappings = this.prepareMappings(options.mappings);
 
         if(!options.default_size) {
@@ -84,7 +84,7 @@ export default {
 
         mapping.forEach((map) => {
             mapper.addSize(map.window, map.sizes)
-    });
+        });
 
         return mapper.build();
     },
