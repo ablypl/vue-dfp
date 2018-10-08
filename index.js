@@ -13,13 +13,13 @@ export default {
     install(Vue, options){
         Vue.component('google-ad', require('./components/BannerAd'));
 
-        this.init(options)
+        this.init(options, Vue)
     },
     /**
      * Initialize google tag manager
      * @param options
      */
-    init(options){
+    init(options, Vue){
         window.googletag = {};
         let googledfpviewable = 0;
         googletag.cmd = googletag.cmd || [];
@@ -33,7 +33,7 @@ export default {
         node.parentNode.insertBefore(gads, node);
 
         googletag.cmd.push(() => {
-            this.extractOptions(options);
+            this.extractOptions(options, Vue);
 
             googletag.pubads().enableSingleRequest();
             //googletag.pubads().enableSyncRendering();
@@ -42,7 +42,6 @@ export default {
             googletag.enableServices();
             //googletag.display('dynamicload');
             // googletag.pubads().refresh();
-
         });
 
     },
@@ -51,7 +50,7 @@ export default {
      * Extract plugin options
      * @param options
      */
-    extractOptions(options){
+    extractOptions(options, Vue){
         options.sizes = Object.assign(this.sizes, options.sizes);
         options.mappings = this.prepareMappings(options.mappings);
 
