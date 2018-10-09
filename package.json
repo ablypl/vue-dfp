@@ -1,6 +1,6 @@
 {
   "name": "vue-doubleclick",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Google DoubleClick for Publishers",
   "main": "index.js",
   "scripts": {
