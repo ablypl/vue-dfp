@@ -1,5 +1,7 @@
 'use strict';
 
+import BannerAd from './components/BannerAd'
+
 export default {
     sizes : {
         banner: [[1200, 600], [1200, 400], [300, 250], [300, 300]],
@@ -11,7 +13,7 @@ export default {
      * @param options
      */
     install(Vue, options){
-        Vue.component('google-ad', require('./components/BannerAd'));
+        Vue.component('google-ad', BannerAd);
 
         this.init(options, Vue)
     },
